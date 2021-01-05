@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\RoadMap\\RoadMap_Project\\RoadMap_WA\\RoadMap_WA.csproj": {}
+    "D:\\_CODING\\RoadMap\\RoadMap_Project\\RoadMap_WA\\RoadMap_WA.csproj": {}
   },
   "projects": {
-    "E:\\RoadMap\\RoadMap_Project\\RoadMap_WA\\RoadMap_WA.csproj": {
+    "D:\\_CODING\\RoadMap\\RoadMap_Project\\RoadMap_WA\\RoadMap_WA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\RoadMap\\RoadMap_Project\\RoadMap_WA\\RoadMap_WA.csproj",
+        "projectUniqueName": "D:\\_CODING\\RoadMap\\RoadMap_Project\\RoadMap_WA\\RoadMap_WA.csproj",
         "projectName": "RoadMap_WA",
-        "projectPath": "E:\\RoadMap\\RoadMap_Project\\RoadMap_WA\\RoadMap_WA.csproj",
+        "projectPath": "D:\\_CODING\\RoadMap\\RoadMap_Project\\RoadMap_WA\\RoadMap_WA.csproj",
         "packagesPath": "C:\\Users\\fedya\\.nuget\\packages\\",
-        "outputPath": "E:\\RoadMap\\RoadMap_Project\\RoadMap_WA\\obj\\",
+        "outputPath": "D:\\_CODING\\RoadMap\\RoadMap_Project\\RoadMap_WA\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -43,6 +43,16 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNet.Mvc": {
+              "target": "Package",
+              "version": "[5.2.7, )"
+            },
+            "Microsoft.AspNetCore.StaticFiles": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
