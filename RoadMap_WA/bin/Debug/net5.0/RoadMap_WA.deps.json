@@ -25,6 +25,7 @@
     ".NETCoreApp,Version=v5.0": {
       "RoadMap_WA/1.0.0": {
         "dependencies": {
+          "Glimpse.AspNet": "1.9.2",
           "Microsoft.AspNet.Mvc": "5.2.7",
           "Microsoft.AspNetCore.StaticFiles": "2.2.0",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
@@ -316,6 +317,31 @@
         },
         "compile": {
           "RoadMap_WA.dll": {}
+        }
+      },
+      "Glimpse/1.8.6": {
+        "runtime": {
+          "lib/net45/Glimpse.Core.dll": {
+            "assemblyVersion": "1.8.6.0",
+            "fileVersion": "1.8.6.0"
+          }
+        },
+        "compile": {
+          "lib/net45/Glimpse.Core.dll": {}
+        }
+      },
+      "Glimpse.AspNet/1.9.2": {
+        "dependencies": {
+          "Glimpse": "1.8.6"
+        },
+        "runtime": {
+          "lib/net45/Glimpse.AspNet.dll": {
+            "assemblyVersion": "1.9.2.0",
+            "fileVersion": "1.9.2.0"
+          }
+        },
+        "compile": {
+          "lib/net45/Glimpse.AspNet.dll": {}
         }
       },
       "Microsoft.AspNet.Mvc/5.2.7": {
@@ -2182,6 +2208,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Glimpse/1.8.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jubTSNDTgjCcCLibXAB28hnC2MPRjjG5PIrx4Wc5ZILsx8qt3bdEGGIS2LRMQk8mcGHWhEFFPLWFaJQJyWtS9Q==",
+      "path": "glimpse/1.8.6",
+      "hashPath": "glimpse.1.8.6.nupkg.sha512"
+    },
+    "Glimpse.AspNet/1.9.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nqELu3G99CWZIEpdi7Hp7SdBU+8Dl0Y9+CluVRa4HEIGziWmFQ1lJ5Hlyk/U9IRmJ5nolVbJngeWxO4Jz2jqpQ==",
+      "path": "glimpse.aspnet/1.9.2",
+      "hashPath": "glimpse.aspnet.1.9.2.nupkg.sha512"
     },
     "Microsoft.AspNet.Mvc/5.2.7": {
       "type": "package",

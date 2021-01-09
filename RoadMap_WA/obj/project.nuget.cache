@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "VUC7fiCVtf5ekFHRmnRZVIjCRfYWxY+2Yo9dUmxBSXGoLH9/BPEj6YtI/gSK2k0qcqs5cey80Wc8gIFNtoJKyQ==",
+  "dgSpecHash": "W6uhOCz6FXHT444AQ6N1L4mD7wC7kmhwcFtrkqVVyXq671oO/CuY16zXmcy4w/2K8DaWJg61StxtcXoxwOGE6g==",
   "success": true,
   "projectFilePath": "D:\\_CODING\\RoadMap\\RoadMap_Project\\RoadMap_WA\\RoadMap_WA.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\fedya\\.nuget\\packages\\glimpse\\1.8.6\\glimpse.1.8.6.nupkg.sha512",
+    "C:\\Users\\fedya\\.nuget\\packages\\glimpse.aspnet\\1.9.2\\glimpse.aspnet.1.9.2.nupkg.sha512",
     "C:\\Users\\fedya\\.nuget\\packages\\microsoft.aspnet.mvc\\5.2.7\\microsoft.aspnet.mvc.5.2.7.nupkg.sha512",
     "C:\\Users\\fedya\\.nuget\\packages\\microsoft.aspnet.razor\\3.2.7\\microsoft.aspnet.razor.3.2.7.nupkg.sha512",
     "C:\\Users\\fedya\\.nuget\\packages\\microsoft.aspnet.webpages\\3.2.7\\microsoft.aspnet.webpages.3.2.7.nupkg.sha512",
@@ -30,6 +32,26 @@
     "C:\\Users\\fedya\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Пакет \"Glimpse 1.8.6\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\", а не целевой платформы проекта \"net5.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "libraryId": "Glimpse",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Пакет \"Glimpse.AspNet 1.9.2\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\", а не целевой платформы проекта \"net5.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "libraryId": "Glimpse.AspNet",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    },
     {
       "code": "NU1701",
       "level": "Warning",

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RoadMap_WA.Data.Intefaces
 {
-    interface IAllRoadMaps
+    public interface IAllRoadMaps
     {
         /// <summary>
         /// Выдаёт все RoadMap-ы

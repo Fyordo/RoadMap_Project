@@ -15,4 +15,8 @@
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgGlimpse Condition=" '$(PkgGlimpse)' == '' ">C:\Users\fedya\.nuget\packages\glimpse\1.8.6</PkgGlimpse>
+    <PkgGlimpse_AspNet Condition=" '$(PkgGlimpse_AspNet)' == '' ">C:\Users\fedya\.nuget\packages\glimpse.aspnet\1.9.2</PkgGlimpse_AspNet>
+  </PropertyGroup>
 </Project>

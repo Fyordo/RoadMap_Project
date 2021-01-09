@@ -2,6 +2,27 @@
   "version": 3,
   "targets": {
     "net5.0": {
+      "Glimpse/1.8.6": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Glimpse.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Glimpse.Core.dll": {}
+        }
+      },
+      "Glimpse.AspNet/1.9.2": {
+        "type": "package",
+        "dependencies": {
+          "Glimpse": "1.8.6"
+        },
+        "compile": {
+          "lib/net45/Glimpse.AspNet.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Glimpse.AspNet.dll": {}
+        }
+      },
       "Microsoft.AspNet.Mvc/5.2.7": {
         "type": "package",
         "dependencies": {
@@ -294,6 +315,45 @@
     }
   },
   "libraries": {
+    "Glimpse/1.8.6": {
+      "sha512": "jubTSNDTgjCcCLibXAB28hnC2MPRjjG5PIrx4Wc5ZILsx8qt3bdEGGIS2LRMQk8mcGHWhEFFPLWFaJQJyWtS9Q==",
+      "type": "package",
+      "path": "glimpse/1.8.6",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "docs/Glimpse.Core.Documentation.chm",
+        "glimpse.1.8.6.nupkg.sha512",
+        "glimpse.nuspec",
+        "lib/net35/Glimpse.Core.dll",
+        "lib/net40/Glimpse.Core.dll",
+        "lib/net45/Glimpse.Core.dll",
+        "tools/glimpse.psm1",
+        "tools/init.ps1",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
+    "Glimpse.AspNet/1.9.2": {
+      "sha512": "nqELu3G99CWZIEpdi7Hp7SdBU+8Dl0Y9+CluVRa4HEIGziWmFQ1lJ5Hlyk/U9IRmJ5nolVbJngeWxO4Jz2jqpQ==",
+      "type": "package",
+      "path": "glimpse.aspnet/1.9.2",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/GlimpseSecurityPolicy.cs.pp",
+        "content/web.config.transform",
+        "glimpse.aspnet.1.9.2.nupkg.sha512",
+        "glimpse.aspnet.nuspec",
+        "lib/net35/Glimpse.AspNet.dll",
+        "lib/net40/Glimpse.AspNet.dll",
+        "lib/net45/Glimpse.AspNet.dll",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
     "Microsoft.AspNet.Mvc/5.2.7": {
       "sha512": "m3hUsn48k6Qb5El9A8naTwGTLCdSQKGSpGweqIfiVKltGJzAJJxuXvhhaQQtLCGg3i5V88iGjz0JG72/tlFKlg==",
       "type": "package",
@@ -740,6 +800,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "Glimpse.AspNet >= 1.9.2",
       "Microsoft.AspNet.Mvc >= 5.2.7",
       "Microsoft.AspNetCore.StaticFiles >= 2.2.0"
     ]
@@ -788,6 +849,10 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
+          "Glimpse.AspNet": {
+            "target": "Package",
+            "version": "[1.9.2, )"
+          },
           "Microsoft.AspNet.Mvc": {
             "target": "Package",
             "version": "[5.2.7, )"
@@ -820,6 +885,26 @@
     }
   },
   "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Пакет \"Glimpse 1.8.6\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\", а не целевой платформы проекта \"net5.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "libraryId": "Glimpse",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Пакет \"Glimpse.AspNet 1.9.2\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\", а не целевой платформы проекта \"net5.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "libraryId": "Glimpse.AspNet",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    },
     {
       "code": "NU1701",
       "level": "Warning",

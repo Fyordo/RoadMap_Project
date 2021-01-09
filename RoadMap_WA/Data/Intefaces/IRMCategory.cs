@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RoadMap_WA.Data.Intefaces
 {
-    interface IRMCategory
+    public interface IRMCategory
     {
         /// <summary>
         /// Выдаёт все категории RoadMap-ов

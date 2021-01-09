@@ -19,7 +19,7 @@ namespace RoadMap_WA
         {
             services.AddTransient<IAllRoadMaps, MockRoadMaps>();
             services.AddTransient<IRMCategory, MockRMCategory>();
-            services.AddMvc();
+            services.AddMvc(options => options.EnableEndpointRouting = false);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -30,6 +30,7 @@ namespace RoadMap_WA
             }
             app.UseStatusCodePages();
             app.UseStaticFiles();
+            app.UseMvcWithDefaultRoute();
         }
     }
 }
