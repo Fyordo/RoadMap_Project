@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace RoadMap_WA.ViewModels
 {
-    public class RoadMapsListViewModel
+    public class HomeViewModel
     {
         /// <summary>
-        /// All Road-maps of RoadMapCategory
+        /// All Road-maps of current RoadMapCategory
         /// </summary>
         public IEnumerable<FullRoadMap> AllRoadMaps { get; set; }
         /// <summary>
-        /// Current RM category
+        /// Current RoadMapCategory
         /// </summary>
         public string RoadMapCategory { get; set; }
     }

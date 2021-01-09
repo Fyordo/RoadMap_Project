@@ -12,6 +12,6 @@ namespace RoadMap_WA.Data.Intefaces
         /// <summary>
         /// Выдаёт все категории RoadMap-ов
         /// </summary>
-        IEnumerable<RMCategory> AllRMCategories { get; }
+        List<RMCategory> AllRMCategories { get; }
     }
 }

@@ -9,15 +9,16 @@ namespace RoadMap_WA.Data.Mocks
 {
     public class MockRMCategory : IRMCategory
     {
-        public IEnumerable<RMCategory> AllRMCategories
+        public List<RMCategory> AllRMCategories
         {
             get
             {
                 return new List<RMCategory>
                 {
-                    new RMCategory { CategoryName = "Веб - программирование", Description = "Написание сайтов, тыры-пыры" },
-                    new RMCategory { CategoryName = "Desktop программирование", Description = "Написание программ для ПК, тыры-пыры" },
-                    new RMCategory { CategoryName = "Мобильное программирование", Description = "Написание программ для телефонов, тыры-пыры" }
+                    new RMCategory { CategoryName = "Custom", Description = "Custom Category", Id = 1 },
+                    new RMCategory { CategoryName = "Desktop development", Description = "Coding PC apps (Windows, Linux, MacOS)", Id = 2 },
+                    new RMCategory { CategoryName = "Mobile development", Description = "Coding Mobile apps (android, IPhone and etc.)", Id = 3 },
+                    new RMCategory { CategoryName = "Web development", Description = "Coding Web-sites and Web-apps", Id = 4 }
                 };
             }
         }

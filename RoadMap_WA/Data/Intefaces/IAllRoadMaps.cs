@@ -11,14 +11,14 @@ namespace RoadMap_WA.Data.Intefaces
         /// <summary>
         /// Выдаёт все RoadMap-ы
         /// </summary>
-        IEnumerable<RoadMap> RoadMaps { get; }
+        IEnumerable<FullRoadMap> RoadMaps { get; }
         /// <summary>
         /// Выдаёт все избранные RoadMap-ы
         /// </summary>
-        IEnumerable<RoadMap> GetFavRMs { get; set; }
+        IEnumerable<RoadMapNode> GetFavRMs { get; set; }
         /// <summary>
         /// Выдаёт RoadMap
         /// </summary>
-        RoadMap GetObjectRoadMap(int rmID);
+        FullRoadMap GetObjectRoadMap(string RoadMapName);
     }
 }

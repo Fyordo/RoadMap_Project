@@ -8,26 +8,26 @@ using System.Threading.Tasks;
 
 namespace RoadMap_WA.Controllers
 {
-    public class RoadMapsController : Controller
+    public class HomeController : Controller
     {
         private readonly IAllRoadMaps _allRoadMaps;
         private readonly IRMCategory _allRMCategories;
 
-        public RoadMapsController(IAllRoadMaps _allRoadMaps, IRMCategory _allRMCategories)
+        public HomeController(IAllRoadMaps _allRoadMaps, IRMCategory _allRMCategories)
         {
             this._allRoadMaps = _allRoadMaps;
             this._allRMCategories = _allRMCategories;
         }
 
         /// <summary>
-        /// Send all RoadMaps to the Page
+        /// Send popular RoadMaps to the Page
         /// </summary>
         /// <returns></returns>
-        public ViewResult List()
+        public ViewResult Index()
         {
-            ViewBag.Title = "RoadMaps List";
-            RoadMapsListViewModel obj = new RoadMapsListViewModel();
-            obj.AllRoadMaps = _allRoadMaps.RoadMaps;
+            ViewBag.Title = "Home Page";
+            HomeViewModel obj = new HomeViewModel();
+            obj.AllRoadMaps = _allRoadMaps.RoadMaps.Where(rm => rm.IsPopular);
             obj.RoadMapCategory = "Категория";
             return View(obj);
         }

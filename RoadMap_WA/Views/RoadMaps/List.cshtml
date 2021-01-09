@@ -1,4 +1,8 @@
-﻿<h1 align="center" style="margin-bottom: 40px;">Все RoadMap-ы</h1>
+﻿@{ 
+	Layout = "_Layout";
+}
+
+<h1 align="center" style="margin-bottom: 40px;">All RoadMaps</h1>
 
 <table width="100%" cellspacing="0" cellpadding="5">
 	<tr>
@@ -6,14 +10,26 @@
 		{
 			<td width="200" valign="top">
 				<div>
-					<h2>Содержание: @RMap.Data</h2>
-					<h3>Дети: </h3>
+					<h2>Название: @RMap.Name</h2>
+					<h3>----------------------</h3>
 					@{
-						foreach (var child in RMap.Children)
+						foreach (var node in RMap.Nodes)
 						{
-							<p>@child.Data</p>
+							if (node._ParentID == 1)
+							{
+								<h4>- @node.Title</h4>
+								foreach (var second_node in RMap.Nodes)
+								{
+									if (second_node._ParentID == node._Id)
+									{
+										<h5>- - @second_node.Title</h5>
+									}
+
+								}
+							}
 						}
 					}
+
 				</div>
 			</td>
 		}

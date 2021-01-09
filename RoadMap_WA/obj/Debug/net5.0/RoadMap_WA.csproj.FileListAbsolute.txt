@@ -67,3 +67,5 @@ D:\_CODING\RoadMap\RoadMap_Project\RoadMap_WA\obj\Debug\net5.0\Razor\Views\_View
 D:\_CODING\RoadMap\RoadMap_Project\RoadMap_WA\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
 D:\_CODING\RoadMap\RoadMap_Project\RoadMap_WA\bin\Debug\net5.0\Glimpse.Core.dll
 D:\_CODING\RoadMap\RoadMap_Project\RoadMap_WA\bin\Debug\net5.0\Glimpse.AspNet.dll
+D:\_CODING\RoadMap\RoadMap_Project\RoadMap_WA\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
+D:\_CODING\RoadMap\RoadMap_Project\RoadMap_WA\obj\Debug\net5.0\Razor\Views\Shared\_Home.cshtml.g.cs
