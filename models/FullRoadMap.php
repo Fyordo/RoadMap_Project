@@ -11,13 +11,13 @@ class FullRoadMap{
     public $Nodes;
     public $CategoryName;
 
-    public function __construct($id, $name, $categoryId, $nodes, $isFavorite, $ShortDesc, $LongDesc)
+    public function __construct($id, $name, $categoryId, $nodes, $isPopular, $ShortDesc, $LongDesc)
     {
         $this->ID = $id;
         $this->Name = $name;
         $this->CategoryId = $categoryId;
         $this->Nodes = $nodes;
-        $this->IsPopular = $isFavorite;
+        $this->IsPopular = $isPopular;
         $this->ShortDesc = $ShortDesc;
         $this->LongDesc = $LongDesc;
     }
