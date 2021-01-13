@@ -2,13 +2,14 @@
 include_once 'models/FullRoadMap.php';
 include_once 'models/RoadMapNode.php';
 include_once 'models/Category.php';
+include_once 'config.php';
 
 class Categories
 {
     public static function GetAllCategories()
     {
         $res = [];
-        $link = mysqli_connect("localhost", "root", "root", "roadmapproject", 3306);
+        $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, "roadmapproject", DBConfiguration::$port);
 
         $sql = 'SELECT * FROM `categories`';
         $result = mysqli_query($link, $sql);
@@ -29,7 +30,7 @@ class Categories
     }
 
     public static function AddNewCategory($CategoryName, $Description){
-        $link = mysqli_connect("localhost", "root", "root", "roadmapproject", 3306);
+        $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, "roadmapproject", DBConfiguration::$port);
 
         $CurrList = self::GetAllCategories();
         $NewID = (int)$CurrList[count($CurrList) - 1]->ID + 1;

@@ -2,13 +2,14 @@
 include_once 'models/FullRoadMap.php';
 include_once 'models/RoadMapNode.php';
 include_once 'models/Category.php';
+include_once 'config.php';
 
 class RoadMaps
 {
     public static function GetAllRoadMaps()
     {
         $AllRoadMaps = [];
-        $link = mysqli_connect("localhost", "root", "root", "roadmapproject", 3306);
+        $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, "roadmapproject", DBConfiguration::$port);
 
         $sql = 'SELECT * FROM `roadmapslist`';
         $roadmaps = mysqli_query($link, $sql);
@@ -41,7 +42,7 @@ class RoadMaps
     public static function GetAllNodes()
     {
         $AllNodes = [];
-        $link = mysqli_connect("localhost", "root", "root", "roadmapproject", 3306);
+        $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, "roadmapproject", DBConfiguration::$port);
 
         $sql = 'SELECT * FROM `nodeslist`';
         $nodes = mysqli_query($link, $sql);
@@ -61,7 +62,7 @@ class RoadMaps
 
     public static function InitNewRoadMap($Name, $CategoryName, $isPopular, $ShortDesc, $LongDesc)
     {
-        $link = mysqli_connect("localhost", "root", "root", "roadmapproject", 3306);
+        $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, "roadmapproject", DBConfiguration::$port);
 
         $CurrList = self::GetAllRoadMaps();
         $CID = Categories::FindIDByName($CategoryName);
@@ -75,7 +76,7 @@ class RoadMaps
 
     public static function AddNewNode($ParentID, $RoadMapID, $Type, $Title, $Description)
     {
-        $link = mysqli_connect("localhost", "root", "root", "roadmapproject", 3306);
+        $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, "roadmapproject", DBConfiguration::$port);
 
         $Nodes = self::GetAllNodes();
 
