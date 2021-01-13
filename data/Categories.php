@@ -23,9 +23,39 @@ class Categories
             $CurrCategory->Description = $row[2];
             array_push($res, $CurrCategory);
         }
+        mysqli_close($link);
 
         return $res;
     }
-}
 
-mysqli_close($link);
+    public static function AddNewCategory($CategoryName, $Description){
+        $link = mysqli_connect("localhost", "root", "root", "roadmapproject", 3306);
+
+        $CurrList = self::GetAllCategories();
+        $NewID = (int)$CurrList[count($CurrList) - 1]->ID + 1;
+        $sql = "INSERT INTO `categories` (`ID`, `CategoryName`, `Description`) VALUES ('$NewID',  '$CategoryName', '$Description')";
+        $result = mysqli_query($link, $sql);
+
+        mysqli_close($link);
+    }
+
+    public static function FindIDByName($Name){
+        $Categories = Categories::GetAllCategories();
+        for ($i = 0; $i < count($Categories); $i++){
+            if ($Categories[$i]->CategoryName == $Name){
+                return (int)$Categories[$i]->ID;
+            }
+        }
+        return -1;
+    }
+
+    public static function FindNameById($ID){
+        $Categories = Categories::GetAllCategories();
+        for ($i = 0; $i < count($Categories); $i++){
+            if ($Categories[$i]->ID == $ID){
+                return $Categories[$i]->CategoryName;
+            }
+        }
+        return "";
+    }
+}
