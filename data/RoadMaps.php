@@ -19,7 +19,7 @@ class RoadMaps
         // Надо бы попробовать читать не всю таблицу, а только часть в цикле
 
         $CountRowsRoadMaps = mysqli_num_rows($roadmaps);
-        $CountRowsNodes = mysqli_num_rows($nodes);
+        $CountRowsNodes = count($nodes);
 
         for ($i = 0; $i < $CountRowsRoadMaps; $i++) {
 

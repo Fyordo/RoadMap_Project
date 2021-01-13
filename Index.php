@@ -1,58 +1,67 @@
 <?php
-include_once "data/RoadMaps.php";
-include_once "data/Categories.php";
-$AllRoadMaps = RoadMaps::GetAllRoadMaps();
-$AllCategories = Categories::GetAllCategories();
+	include_once "data/RoadMaps.php";
+	include_once "data/Categories.php";
+	$AllRoadMaps = RoadMaps::GetAllRoadMaps();
+	$AllCategories = Categories::GetAllCategories();
 ?>
 
 <!DOCTYPE html>
 
-<html lang="HTML">
+<html lang="ru">
 
 <head>
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="css/Background.css" rel="stylesheet" type="text/css" />
-    <script src="js/bootstrap.min.js"></script>
+	<!-- Несколько обязательных meta тегов -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-    <meta name="viewport" content="width=device-width" />
+	<title>RoadMaps Manager</title>
 
-    <title>RoadMaps Manager</title>
+	<!-- link вставляем в конце head -->
+	<link href="css/_reset.css" rel="stylesheet" type="text/css" />
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-    <header class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-        <a href="Index.php"><img src="img/Icon.png" width="70" height="70" /></a>
-        <p class="h5 my-0 me-md-auto fw-normal" style="margin-left: 30px;">RoadMaps</p>
-        <nav class="my-2 my-md-0 me-md-3">
-            <a class="p-2 text-dark" href="ShowAll.php">All RoadMaps</a>
-            <a class="p-2 text-dark" href="#">Create RoadMap</a>
-            <a class="p-2 text-dark" href="#">My RoadMaps</a>
-        </nav>
-        <a class="btn btn-outline-primary" href="#">Sign up</a>
-    </header>
-    <?php for ($i = 0; $i < count($AllRoadMaps); $i++) : ?>
-        <?php if ($AllRoadMaps[$i]->IsPopular) : ?>
-            <h2>
-                <strong style="margin-left: 10px;"> Дорожная карта:
-                    <? echo $AllRoadMaps[$i]->Name; ?>
-                </strong>
-            </h2>
-            <p style="margin-left: 30px;">
-                <? echo $AllRoadMaps[$i]->LongDesc; ?>
-            </p>
+	<header class="header">
+		<div class="header__wrapper wrapper">
+			<a class="header__logo logo" href="/index.php">
+				<img class="logo__img" src="/img/icon.png" width="70" height="70" alt="Logo">
+				<h1 class="logo__text">RoadMaps</h1>
+			</a>
+			<nav class="header__nav nav">
+				<a class="nav__link" href="/ShowAll.php">All RoadMaps</a>
+				<a class="nav__link" href="#">Create RoadMap</a>
+				<a class="nav__link" href="#">My RoadMaps</a>
+				<a class="nav__link nav__link--signup" href="#">Sign up</a>
+			</nav>
+		</div>
+	</header>
 
+	<main class="main">
+		<div class="main__wrapper wrapper">
+			<?php for ($i = 0; $i < count($AllRoadMaps); $i++) : ?>
+				<?php if ($AllRoadMaps[$i]->IsPopular) : ?>
+					<article class="main__article">
+						<h2 class="main__heading">Дорожная карта: <? echo $AllRoadMaps[$i]->Name; ?></h2>
+						<p class="main__text"><? echo $AllRoadMaps[$i]->LongDesc; ?></p>
+					</article>
+				<?php endif; ?>
+			<?php endfor; ?>
+		</div>
+	</main>
 
-        <?php endif; ?>
-    <?php endfor; ?>
+	<footer class="footer">
+		<div class="footer__wrapper wrapper">
+			<p class="footer__text">©Fyor Lando, nerealy professi_analny backend-developer😎</p>
+			<p class="footer__text">©Learde, nerealy professi_analny frontend-developer😎</p>
+		</div>
+	</footer>
 
-    <footer class="text-muted py-5">
-        <div class="container">
-            <p class="float-end mb-1">
-            </p>
-            <p class="mb-1">©Fyor Lando, nerealy professi_analny web-developer</p>
-        </div>
-    </footer>
-
+	<!-- Скрипты вставляем в конце body -->
+	<script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>
