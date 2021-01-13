@@ -30,7 +30,6 @@ $AllCategories = Categories::GetAllCategories();
         </nav>
         <a class="btn btn-outline-primary" href="#">Sign up</a>
     </header>
-    <h1 style="margin-left: 100px;"> <?php echo $AllCategories[3]->CategoryName; ?></h1>
     <?php for ($i = 0; $i < count($AllRoadMaps); $i++) : ?>
         <?php if ($AllRoadMaps[$i]->IsPopular) : ?>
             <h2>

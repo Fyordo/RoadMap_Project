@@ -39,12 +39,10 @@ $AllCategories = Categories::GetAllCategories();
                         <strong> Название:
                             <? echo $AllRoadMaps[$i]->Name; ?>
                         </strong>
-                        <?php for ($j = 0; $j < count($AllRoadMaps[$i]->Nodes); $j++) : ?>
-                            <h3>
-                                <? echo $AllRoadMaps[$i]->Nodes[$j]->Title; ?>
-                            </h3>
-                        <?php endfor; ?>
                     </h2>
+                    <p>
+                        <? echo $AllRoadMaps[$i]->ShortDesc ?>
+                    </p>
                 </td>
             <?php endfor; ?>
         </tr>

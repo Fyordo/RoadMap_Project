@@ -18,6 +18,8 @@ class RoadMaps
         $sql = 'SELECT * FROM `nodeslist`';
         $nodes = mysqli_query($link, $sql);
 
+        // Надо бы попробовать читать не всю таблицу, а только часть в цикле
+
         $CountRowsRoadMaps = mysqli_num_rows($roadmaps);
         $CountRowsNodes = mysqli_num_rows($nodes);
 
