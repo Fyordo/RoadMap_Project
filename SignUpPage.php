@@ -15,7 +15,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-	<title>RoadMaps Manager</title>
+	<title>RoadMap Redactor</title>
 
 	<!-- link вставляем в конце head -->
 	<link href="css/_reset.css" rel="stylesheet" type="text/css" />
@@ -41,14 +41,7 @@
 
 	<main class="main">
 		<div class="main__wrapper wrapper">
-			<?php for ($i = 0; $i < count($AllRoadMaps); $i++) : ?>
-				<?php if ($AllRoadMaps[$i]->IsPopular) : ?>
-					<article class="main__article">
-						<h2 class="main__heading">Дорожная карта: <? echo $AllRoadMaps[$i]->Name; ?></h2>
-						<p class="main__text"><? echo $AllRoadMaps[$i]->LongDesc; ?></p>
-					</article>
-				<?php endif; ?>
-			<?php endfor; ?>
+			<h1>Тут пока ничего нет, но будет авторизация</h1>
 		</div>
 	</main>
 

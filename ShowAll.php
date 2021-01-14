@@ -24,11 +24,10 @@ $AllCategories = Categories::GetAllCategories();
         <a href="Index.php"><img src="img/Icon.png" width="70" height="70" /></a>
         <p class="h5 my-0 me-md-auto fw-normal" style="margin-left: 30px;">RoadMaps</p>
         <nav class="my-2 my-md-0 me-md-3">
-            <a class="p-2 text-dark" href="ShowAll.php">All RoadMaps</a>
-            <a class="p-2 text-dark" href="#">Create RoadMap</a>
-            <a class="p-2 text-dark" href="#">My RoadMaps</a>
+            <a class="p-2 text-dark" href="/ShowAll.php">All RoadMaps</a>
+            <a class="p-2 text-dark" href="/CreateRoadMaps.php">Create RoadMap</a>
         </nav>
-        <a class="btn btn-outline-primary" href="#">Sign up</a>
+        <a class="btn btn-outline-primary" href="/SignUpPage.php">Sign up</a>
     </header>
 
     <table style="vertical-align:top;" border=2 width="100%" cellspacing="0" cellpadding="5">
