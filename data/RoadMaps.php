@@ -6,6 +6,7 @@ include_once 'config.php';
 
 class RoadMaps
 {
+    // Получить 
     public static function GetAllRoadMaps()
     {
         $AllRoadMaps = [];
@@ -15,8 +16,6 @@ class RoadMaps
         $roadmaps = mysqli_query($link, $sql);
 
         $nodes = self::GetAllNodes();
-
-        // Надо бы попробовать читать не всю таблицу, а только часть в цикле
 
         $CountRowsRoadMaps = mysqli_num_rows($roadmaps);
         $CountRowsNodes = count($nodes);
@@ -39,6 +38,7 @@ class RoadMaps
         return $AllRoadMaps;
     }
 
+    // Получить все пункты всех карт
     public static function GetAllNodes()
     {
         $AllNodes = [];
@@ -60,6 +60,7 @@ class RoadMaps
         return $AllNodes;
     }
 
+    // Инициализировать новую дорожную карту (без пунктов)
     public static function InitNewRoadMap($Name, $CategoryName, $isPopular, $ShortDesc, $LongDesc)
     {
         $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, "roadmapproject", DBConfiguration::$port);
@@ -74,6 +75,7 @@ class RoadMaps
         mysqli_close($link);
     }
 
+    // Добавить новый пункт
     public static function AddNewNode($ParentID, $RoadMapID, $Type, $Title, $Description)
     {
         $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, "roadmapproject", DBConfiguration::$port);

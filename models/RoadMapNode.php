@@ -1,12 +1,12 @@
 <?php
 
 class RoadMapNode{
-    public $ID;
-    public $ParentID;
+    public $ID; // ID пункта
+    public $ParentID; // ID родительского пункта
     public $RoadMapID; // ID основной карты
-    public $Type; // Тип Node-a (начальный, средний, конечный)
-    public $Title;
-    public $LongDesc;
+    public $Type; // Тип Node-a (b = начальный, m = средний, e = конечный)
+    public $Title; // Название пункта
+    public $LongDesc; // Описание пункта
 
     public function __construct($id, $ParentID, $RoadMapID, $Type, $Title, $LongDesc){
         $this->ID = $id;

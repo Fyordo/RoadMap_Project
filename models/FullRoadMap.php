@@ -1,15 +1,15 @@
 <?php
 
 class FullRoadMap{
-    public $ID;
-    public $Name;
-    public $CategoryID;
-    public $IsPopular;
-    public $ShortDesc;
-    public $LongDesc;
+    public $ID; // ID полной дорожной карты
+    public $Name; // Имя дорожной карты
+    public $CategoryID; // ID категории
+    public $IsPopular; // Является ли эта карта популярной (отображается на главной странице)
+    public $ShortDesc; // Краткое описание
+    public $LongDesc; // Длинное описание
 
-    public $Nodes;
-    public $CategoryName;
+    public $Nodes; // Все пункты дорожной карты
+    public $CategoryName; // Имя категории данной карты
 
     public function __construct($id, $name, $categoryId, $nodes, $isPopular, $ShortDesc, $LongDesc)
     {
@@ -22,11 +22,13 @@ class FullRoadMap{
         $this->LongDesc = $LongDesc;
     }
 
-    public function AddNode(?RoadMapNode $Node){
+    // Добавить новый пункт в массив пунктов
+    public function AddNode(RoadMapNode $Node){
         array_push($this->Nodes, $Node);
     }
 
-    public function GetChildren(?RoadMapNode $Parent){
+    // Получить все ответвления от данного пункта
+    public function GetChildren(RoadMapNode $Parent){
         $Ans = [];
         for ($i = 0; $i < count($this->Nodes); $i++){
             if ($this->Nodes[$i]->ParentID == $Parent->ID){

@@ -4,8 +4,6 @@
 	include_once "data/UserDB.php";
 	$AllRoadMaps = RoadMaps::GetAllRoadMaps();
 	$AllCategories = Categories::GetAllCategories();
-	$CurrUser = UserDB::GetUserDataByID(1);
-	$AllLogins = UserDB::GetAllLogins();
 ?>
 
 <!DOCTYPE html>

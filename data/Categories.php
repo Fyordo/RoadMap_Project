@@ -6,6 +6,7 @@ include_once 'config.php';
 
 class Categories
 {
+    // Получить список всех категорий с их характеристиками
     public static function GetAllCategories()
     {
         $res = [];
@@ -29,6 +30,7 @@ class Categories
         return $res;
     }
 
+    // Добавить новую категорию в БД
     public static function AddNewCategory($CategoryName, $Description){
         $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, "roadmapproject", DBConfiguration::$port);
 
@@ -40,6 +42,7 @@ class Categories
         mysqli_close($link);
     }
 
+    // Найти ID категории по её имени
     public static function FindIDByName($Name){
         $Categories = Categories::GetAllCategories();
         for ($i = 0; $i < count($Categories); $i++){
@@ -50,6 +53,7 @@ class Categories
         return -1;
     }
 
+    // Найти имя категории по её ID
     public static function FindNameById($ID){
         $Categories = Categories::GetAllCategories();
         for ($i = 0; $i < count($Categories); $i++){
