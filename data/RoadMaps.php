@@ -86,13 +86,6 @@ class RoadMaps
         $sql = "INSERT INTO `nodeslist` (`ID`, `ParentID`, `RoadMapID`, `Type`, `Title`, `Description`) VALUES ('$NewID',  '$ParentID', '$RoadMapID', '$Type', '$Title', '$Description')";
         $result = mysqli_query($link, $sql);
 
-        if ($result){
-            echo "Балдёж";
-        }
-        else{
-            echo "Не балдёж";
-        }
-
         mysqli_close($link);
     }
 

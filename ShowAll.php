@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once "data/RoadMaps.php";
 include_once "data/Categories.php";
 $AllRoadMaps = RoadMaps::GetAllRoadMaps();
@@ -16,7 +17,7 @@ $AllCategories = Categories::GetAllCategories();
 
     <meta name="viewport" content="width=device-width" />
 
-    <title>All RoadMaps</title>
+    <title>Каталог</title>
 </head>
 
 <body>
@@ -24,10 +25,19 @@ $AllCategories = Categories::GetAllCategories();
         <a href="Index.php"><img src="img/Icon.png" width="70" height="70" /></a>
         <p class="h5 my-0 me-md-auto fw-normal" style="margin-left: 30px;">RoadMaps</p>
         <nav class="my-2 my-md-0 me-md-3">
-            <a class="p-2 text-dark" href="/ShowAll.php">All RoadMaps</a>
-            <a class="p-2 text-dark" href="/CreateRoadMaps.php">Create RoadMap</a>
+            <a class="nav__link" href="/ShowAll.php">Каталог карт</a>
+            <a class="nav__link" href="/CreateRoadMaps.php">Создать дорожную карту</a>
+
+            <?php
+            if ($_SESSION['user']) { ?>
+                <a class="nav__link nav__link--signup" href="/Profile.php">Профиль</a>
+            <?php
+            } else { ?>
+                <a class="nav__link nav__link--signup" href="/User/SignUpPage.php">Войти</a>
+            <?php
+            }
+            ?>
         </nav>
-        <a class="btn btn-outline-primary" href="/SignUpPage.php">Sign up</a>
     </header>
 
     <table style="vertical-align:top;" border=2 width="100%" cellspacing="0" cellpadding="5">

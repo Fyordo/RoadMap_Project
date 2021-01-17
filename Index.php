@@ -1,9 +1,9 @@
 <?php
+	session_start();
 	include_once "data/RoadMaps.php";
 	include_once "data/Categories.php";
 	include_once "data/UserDB.php";
 	$AllRoadMaps = RoadMaps::GetAllRoadMaps();
-	$AllCategories = Categories::GetAllCategories();
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +16,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-	<title>RoadMaps Manager</title>
+	<title>RoadMaps</title>
 
 	<!-- link вставляем в конце head -->
 	<link href="css/_reset.css" rel="stylesheet" type="text/css" />
@@ -33,9 +33,19 @@
 				<h1 class="logo__text">RoadMaps</h1>
 			</a>
 			<nav class="header__nav nav">
-				<a class="nav__link" href="/ShowAll.php">All RoadMaps</a>
-				<a class="nav__link" href="/CreateRoadMaps.php">Create RoadMap</a>
-				<a class="nav__link nav__link--signup" href="/SignUpPage.php">Sign up</a>
+				<a class="nav__link" href="/ShowAll.php">Каталог карт</a>
+				<a class="nav__link" href="/CreateRoadMaps.php">Создать дорожную карту</a>
+				<?php 
+					if ($_SESSION['user']){ ?>
+						<a class="nav__link nav__link--signup" href="/Profile.php">Профиль</a>
+					<?php
+					}
+					else{ ?>
+						<a class="nav__link nav__link--signup" href="/User/SignUpPage.php">Войти</a>
+					<?php 
+					}
+				?>
+				
 			</nav>
 		</div>
 	</header>

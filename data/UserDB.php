@@ -1,53 +1,19 @@
 <?php
-include_once 'models/User.php';
+include_once '../models/User.php';
+include_once 'config.php';
+session_start();
 
 class UserDB
 {
-    // Получить данные о пользователе по его ID
-    public static function GetUserDataByID(int $ID)
-    {
-        $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, "roadmapproject", DBConfiguration::$port);
-
-        $sql = "SELECT * FROM `users` WHERE `ID`='$ID'";
-        $result = mysqli_query($link, $sql);
-
-        if (!$result){
-            return null;
-        }
-        $row = mysqli_fetch_row($result);
-
-        $User = new User();
-        $User->ID = (int)$row[0];
-        $User->Nickname = $row[1];
-        $User->Login = $row[2];
-        $User->Password = $row[3];
-        $User->FavMapsIDS = explode("/", $row[4]);
-        $User->IsSuperUser = (bool)$row[5];
-        mysqli_close($link);
-
-        return $User;
-    }
 
     // Получить данные о пользователе по его логину
     public static function GetUserDataByLogin(string $Login){
         $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, "roadmapproject", DBConfiguration::$port);
-
         $sql = "SELECT * FROM `users` WHERE `Login`='$Login'";
         $result = mysqli_query($link, $sql);
-
-        if (!$result){
-            return null;
-        }
-
+        
         $row = mysqli_fetch_row($result);
-
-        $User = new User();
-        $User->ID = (int)$row[0];
-        $User->Nickname = $row[1];
-        $User->Login = $row[2];
-        $User->Password = $row[3];
-        $User->FavMapsIDS = explode("/", $row[4]);
-        $User->IsSuperUser = (bool)$row[5];
+        $User = new User($row[0], $row[1], $row[2], $row[3], explode("/", $row[4]), $row[5]);
         mysqli_close($link);
 
         return $User;
@@ -65,7 +31,7 @@ class UserDB
 
         for ($i = 0; $i < $CountRows; $i++){
             $row = mysqli_fetch_row($result);
-            array_push($logins, $row[1]);
+            array_push($logins, $row[2]);
         }
         mysqli_close($link);
 
@@ -75,7 +41,12 @@ class UserDB
     // Проверить, существует ли такой логин в БД
     public static function LoginExists(string $Login){
         $Logins = self::GetAllLogins();
-        return in_array($Login, $Logins);
+        for ($i = 0; $i < count($Logins); $i++){
+            if ($Logins[$i] == $Login){
+                return true;
+            }
+        }
+        return false;
     }
 
     // True, если пользователь авторизовался, False, если неправильно ввёл пароль.

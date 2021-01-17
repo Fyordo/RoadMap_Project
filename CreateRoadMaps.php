@@ -1,8 +1,9 @@
 <?php
-	include_once "data/RoadMaps.php";
-	include_once "data/Categories.php";
-	$AllRoadMaps = RoadMaps::GetAllRoadMaps();
-	$AllCategories = Categories::GetAllCategories();
+session_start();
+include_once "data/RoadMaps.php";
+include_once "data/Categories.php";
+$AllRoadMaps = RoadMaps::GetAllRoadMaps();
+$AllCategories = Categories::GetAllCategories();
 ?>
 
 <!DOCTYPE html>
@@ -32,9 +33,17 @@
 				<h1 class="logo__text">RoadMaps</h1>
 			</a>
 			<nav class="header__nav nav">
-				<a class="nav__link" href="/ShowAll.php">All RoadMaps</a>
-				<a class="nav__link" href="/CreateRoadMaps.php">Create RoadMap</a>
-				<a class="nav__link nav__link--signup" href="/SignUpPage.php">Sign up</a>
+				<a class="nav__link" href="/ShowAll.php">Каталог карт</a>
+				<a class="nav__link" href="/CreateRoadMaps.php">Создать дорожную карту</a>
+				<?php
+				if ($_SESSION['user']) { ?>
+					<a class="nav__link nav__link--signup" href="/Profile.php">Профиль</a>
+				<?php
+				} else { ?>
+					<a class="nav__link nav__link--signup" href="/User/SignUpPage.php">Войти</a>
+				<?php
+				}
+				?>
 			</nav>
 		</div>
 	</header>
