@@ -31,7 +31,7 @@
         </div>
     </header>
 
-    <form action="actions/signup.php" method="post" enctype="multipart/form-data">
+    <form action="/User/signup.php" method="post" enctype="multipart/form-data">
         <label>Никнейм</label>
         <input name="nickname">
         <label>Логин</label>

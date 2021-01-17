@@ -36,7 +36,7 @@ session_start();
 		</div>
 	</header>
 
-	<form action="/User/actions/signin.php" method="post" enctype="multipart/form-data">
+	<form action="/User/signin.php" method="post" enctype="multipart/form-data">
 		<label>Логин</label>
 		<input name="login">
 		<label>Пароль</label>

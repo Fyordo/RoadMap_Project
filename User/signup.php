@@ -1,7 +1,7 @@
 <?php
 
     session_start();
-    include_once("../../data/UserDB.php");
+    include_once("../data/UserDB.php");
 
     $nickname = $_POST["nickname"];
     $login = $_POST["login"];
@@ -12,10 +12,10 @@
         UserDB::AddNewUser($nickname, $login, $password);
 
         $_SESSION["message"] = "Регистрация прошла успешно";
-        header('Location: ../SignUpPage.php');
+        header('Location: SignUpPage.php');
     }
     else{
         $_SESSION["message"] = "Пароли не совпадают";
-        header('Location: ../Register.php');
+        header('Location: Register.php');
     }
 ?>

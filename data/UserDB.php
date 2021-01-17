@@ -1,5 +1,5 @@
 <?php
-include_once '../models/User.php';
+include_once dirname(__FILE__).'/../models/User.php';
 include_once 'config.php';
 session_start();
 

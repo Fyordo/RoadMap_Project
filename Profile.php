@@ -1,6 +1,6 @@
 <?php
-include_once("models/User.php");
-include_once("data/RoadMaps.php");
+include_once dirname(__FILE__)."/models/User.php";
+include_once dirname(__FILE__)."/data/RoadMaps.php";
 session_start();
 if (!$_SESSION['user']) {
     header('Location: /');
@@ -40,7 +40,7 @@ $User = $_SESSION['user'];
                 <a class="nav__link" href="/ShowAll.php">Каталог карт</a>
                 <a class="nav__link" href="/CreateRoadMaps.php">Создать дорожную карту</a>
                 <a class="nav__link nav__link--signup" href="/Profile.php">Профиль</a>
-                <a class="nav__link nav__link--signup" href="/User/actions/logout.php">Выйти</a>
+                <a class="nav__link nav__link--signup" href="/User/logout.php">Выйти</a>
             </nav>
         </div>
     </header>
