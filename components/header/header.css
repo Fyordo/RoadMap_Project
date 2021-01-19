@@ -1,0 +1,14 @@
+.header {
+    background-color: #fff;
+    padding: 1.65rem 0;
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .125);
+}
+
+.header__wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.header__nav {
+    margin-left: auto;
+}

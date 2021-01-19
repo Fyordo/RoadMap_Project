@@ -1,0 +1,14 @@
+.roadmap {
+    margin-bottom: 2rem;
+}
+
+.roadmap__heading {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: .8rem;
+}
+
+.roadmap__text {
+    font-size: 1.6rem;
+    margin-left: 1.5rem;
+}

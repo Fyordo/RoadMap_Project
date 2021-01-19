@@ -18,26 +18,27 @@ $head->render();
 ?>
 
 <body>
-    <?php 
+	<?php 
 	$header = new Header();
 	$header->isLogin = $_SESSION["user"];
 	$header->render();
 	?>
-    <main class="main">
+
+	<main class="main">
         <div class="wrapper main__wrapper">
             <?php
             $form = new Form();
             $form->message = $_SESSION["message"];
-            $form->type = 'reg';
+            $form->type = 'login';
             $form->render();
             ?>
         </div>
     </main>
 
-    <?php (new Footer)->render(); ?>
+	<?php (new Footer)->render(); ?>
 
-    <!-- Скрипты вставляем в конце body -->
-    <script src="js/bootstrap.min.js"></script>
+	<!-- Скрипты вставляем в конце body -->
+	<script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>

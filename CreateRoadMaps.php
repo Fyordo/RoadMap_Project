@@ -4,49 +4,28 @@ include_once "data/RoadMaps.php";
 include_once "data/Categories.php";
 $AllRoadMaps = RoadMaps::GetAllRoadMaps();
 $AllCategories = Categories::GetAllCategories();
+
+include_once "components/head/head.php";
+include_once "components/header/header.php";
+include_once "components/footer/footer.php";
 ?>
 
 <!DOCTYPE html>
 
 <html lang="ru">
 
-<head>
-	<!-- Несколько обязательных meta тегов -->
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-
-	<title>RoadMap Redactor</title>
-
-	<!-- link вставляем в конце head -->
-	<link href="css/_reset.css" rel="stylesheet" type="text/css" />
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-	<link href="css/main.css" rel="stylesheet" type="text/css" />
-</head>
+<?php 
+$head = new Head();
+$head->title = 'Roadmap Redactor';
+$head->render();
+?>
 
 <body>
-	<header class="header">
-		<div class="header__wrapper wrapper">
-			<a class="header__logo logo" href="/index.php">
-				<img class="logo__img" src="/img/icon.png" width="70" height="70" alt="Logo">
-				<h1 class="logo__text">RoadMaps</h1>
-			</a>
-			<nav class="header__nav nav">
-				<a class="nav__link" href="/ShowAll.php">Каталог карт</a>
-				<a class="nav__link" href="/CreateRoadMaps.php">Создать дорожную карту</a>
-				<?php
-				if ($_SESSION['user']) { ?>
-					<a class="nav__link nav__link--signup" href="/Profile.php">Профиль</a>
-				<?php
-				} else { ?>
-					<a class="nav__link nav__link--signup" href="/User/SignUpPage.php">Войти</a>
-				<?php
-				}
-				?>
-			</nav>
-		</div>
-	</header>
+	<?php 
+	$header = new Header();
+	$header->isLogin = $_SESSION["user"];
+	$header->render();
+	?>
 
 	<main class="main">
 		<div class="main__wrapper wrapper">
@@ -54,12 +33,7 @@ $AllCategories = Categories::GetAllCategories();
 		</div>
 	</main>
 
-	<footer class="footer">
-		<div class="footer__wrapper wrapper">
-			<p class="footer__text">©Fyor Lando, nerealy professi_analny backend-developer😎</p>
-			<p class="footer__text">©Learde, nerealy professi_analny frontend-developer😎</p>
-		</div>
-	</footer>
+	<?php (new Footer)->render(); ?>
 
 	<!-- Скрипты вставляем в конце body -->
 	<script src="js/bootstrap.min.js"></script>

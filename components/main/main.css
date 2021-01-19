@@ -1,0 +1,25 @@
+.main {
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+}
+
+.main__heading {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: .8rem;
+}
+
+.main__subheading {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: .8rem;
+}
+
+.main__text {
+    font-size: 1.6rem;
+    margin-left: 1.5rem;
+}
+
+.main__article {
+    margin-bottom: 2rem;
+}

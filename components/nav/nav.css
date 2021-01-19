@@ -1,0 +1,32 @@
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav__link:link {
+    font-size: 1.6rem;
+}
+
+.nav__link {
+    padding: .8rem 1rem;
+}
+
+.nav__link--signup {
+    border: 1px solid #359FEF;
+    display: inline-block;
+    padding: 1rem 1.2rem;
+    color: #359FEF !important;
+    border-radius: 4px;
+    margin-left: 1rem;
+    transition: .28s;
+}
+
+.nav__link--signup:hover {
+    background-color: #F02BA1;
+    border-color: #F02BA1;
+    color: #fff !important;
+}
+
+.nav__link--signup:link {
+    text-decoration: none;
+}
