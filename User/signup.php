@@ -12,7 +12,7 @@
         UserDB::AddNewUser($nickname, $login, $password);
 
         $_SESSION["message"] = "Регистрация прошла успешно";
-        header('Location: SignUpPage.php');
+        header('Location: SignInPage.php');
     }
     else{
         $_SESSION["message"] = "Пароли не совпадают";

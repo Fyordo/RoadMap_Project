@@ -1,12 +1,10 @@
 <?php
-include_once 'models/FullRoadMap.php';
-include_once 'models/RoadMapNode.php';
-include_once 'models/Category.php';
-include_once 'config.php';
+include_once dirname(__FILE__)."/../config/services.php";
+include_once dirname(__FILE__) . '/../config/db_connection.php';
 
 class RoadMaps
 {
-    // Получить 
+    // Получить все карты
     public static function GetAllRoadMaps()
     {
         $AllRoadMaps = [];
@@ -36,6 +34,16 @@ class RoadMaps
 
         mysqli_close($link);
         return $AllRoadMaps;
+    }
+
+    // Получить карту по ID
+    public static function GetRoadMapByID($ID){
+        $all = self::GetAllRoadMaps();
+        foreach ($all as $map){
+            if ($map->ID == $ID){
+                return $map;
+            }
+        }
     }
 
     // Получить все пункты всех карт

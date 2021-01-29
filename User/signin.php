@@ -19,9 +19,9 @@ if ((bool)UserDB::LoginExists($login)) {
         header('Location: ../Profile.php');
     } else {
         $_SESSION["message"] = "Неверный пароль";
-        header('Location: SignUpPage.php');
+        header('Location: SignInPage.php');
     }
 } else {
     $_SESSION["message"] = "Неверный логин";
-    header('Location: SignUpPage.php');
+    header('Location: SignInPage.php');
 }

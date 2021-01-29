@@ -1,13 +1,8 @@
 <?php
-session_start();
-include_once "data/RoadMaps.php";
-include_once "data/Categories.php";
-$AllRoadMaps = RoadMaps::GetAllRoadMaps();
-$AllCategories = Categories::GetAllCategories();
-
-include_once "components/head/head.php";
-include_once "components/header/header.php";
-include_once "components/footer/footer.php";
+    include_once "config/services.php";
+    session_start();
+    $AllRoadMaps = RoadMaps::GetAllRoadMaps();
+    $AllCategories = Categories::GetAllCategories();
 ?>
 
 <!DOCTYPE html>
@@ -16,20 +11,20 @@ include_once "components/footer/footer.php";
 
 <?php 
 $head = new Head();
-$head->title = 'Roadmap Redactor';
+$head->title = 'Редактор карт';
 $head->render();
 ?>
 
 <body>
 	<?php 
 	$header = new Header();
-	$header->isLogin = $_SESSION["user"];
+	$header->User = $_SESSION["user"];
 	$header->render();
 	?>
 
 	<main class="main">
 		<div class="main__wrapper wrapper">
-			<h1>Тут пока ничего нет, но будет UI для создания RoadMap-ов</h1>
+            <h2 class="roadmap__heading" align="center">Тут пока ничего нет, но будет UI для создания RoadMap-ов</h2>
 		</div>
 	</main>
 

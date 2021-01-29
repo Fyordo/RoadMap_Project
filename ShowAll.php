@@ -1,14 +1,8 @@
 <?php
+    include_once "config/services.php";
     session_start();
-    include_once "data/RoadMaps.php";
-    include_once "data/Categories.php";
     $AllRoadMaps = RoadMaps::GetAllRoadMaps();
     $AllCategories = Categories::GetAllCategories();
-
-    include_once "components/footer/footer.php";
-	include_once "components/head/head.php";
-	include_once "components/header/header.php";
-	include_once "components/roadmap/roadmap.php";
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +18,7 @@ $head->render();
 <body>
     <?php 
     $header = new Header();
-    $header->isLogin = $_SESSION["user"];
+    $header->User = $_SESSION["user"];
     $header->render();
     ?>
 
@@ -36,6 +30,7 @@ $head->render();
                 $roadmap = new Roadmap();
                 $roadmap->heading = $AllRoadMaps[$i]->Name;
                 $roadmap->text = $AllRoadMaps[$i]->LongDesc;
+                $roadmap->id = $AllRoadMaps[$i]->ID;
                 $roadmap->class = 'main__roadmap main__roadmap--card';
                 $roadmap->render();
             endfor; ?>

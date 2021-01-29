@@ -1,14 +1,7 @@
 <?php
-	session_start();
-	include_once "data/RoadMaps.php";
-	include_once "data/Categories.php";
-	include_once "data/UserDB.php";
-	$AllRoadMaps = RoadMaps::GetAllRoadMaps();
-
-	include_once "components/footer/footer.php";
-	include_once "components/head/head.php";
-	include_once "components/header/header.php";
-	include_once "components/roadmap/roadmap.php";
+    include_once "config/services.php";
+    session_start();
+    $AllRoadMaps = RoadMaps::GetAllRoadMaps();
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +13,7 @@
 <body>
 	<?php 
 	$header = new Header();
-	$header->isLogin = $_SESSION["user"];
+	$header->User = $_SESSION["user"];
 	$header->render();
 	?>
 
@@ -31,6 +24,7 @@
 					$roadmap = new Roadmap();
 					$roadmap->heading = $AllRoadMaps[$i]->Name;
 					$roadmap->text = $AllRoadMaps[$i]->LongDesc;
+                    $roadmap->id = $AllRoadMaps[$i]->ID;
 					$roadmap->class = 'main__roadmap';
 					$roadmap->render();
 				endif;
@@ -41,7 +35,7 @@
 	<?php (new Footer)->render(); ?>
 
 	<!-- Скрипты вставляем в конце body -->
-	<script src="js/bootstrap.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
 </body>
 
 </html>

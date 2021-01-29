@@ -22,19 +22,8 @@ class FullRoadMap{
         $this->LongDesc = $LongDesc;
     }
 
-    // Добавить новый пункт в массив пунктов
-    public function AddNode(RoadMapNode $Node){
-        array_push($this->Nodes, $Node);
-    }
+    public function CountOfAllChildren(): int
+    {
 
-    // Получить все ответвления от данного пункта
-    public function GetChildren(RoadMapNode $Parent){
-        $Ans = [];
-        for ($i = 0; $i < count($this->Nodes); $i++){
-            if ($this->Nodes[$i]->ParentID == $Parent->ID){
-                array_push($Ans, $this->Nodes[$i]);
-            }
-        }
-        return $Ans;
     }
 }

@@ -1,10 +1,7 @@
 <?php
-session_start();
-
-include_once "../components/footer/footer.php";
-include_once "../components/head/head.php";
-include_once "../components/header/header.php";
+include_once "../config/services.php";
 include_once "../components/form/form.php";
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -13,14 +10,14 @@ include_once "../components/form/form.php";
 
 <?php 
 $head = new Head();
-$head->title = 'Roadmap Redactor';
+$head->title = 'Регистрация';
 $head->render();
 ?>
 
 <body>
     <?php 
 	$header = new Header();
-	$header->isLogin = $_SESSION["user"];
+	$header->User = $_SESSION["user"];
 	$header->render();
 	?>
     <main class="main">

@@ -1,17 +1,11 @@
 <?php
-    include_once dirname(__FILE__)."/models/User.php";
-    include_once dirname(__FILE__)."/data/RoadMaps.php";
+    include_once "config/services.php";
     session_start();
     if (!$_SESSION['user']) {
         header('Location: /');
     }
     $AllRoadMaps = RoadMaps::GetAllRoadMaps();
     $User = $_SESSION['user'];
-
-    include_once "components/footer/footer.php";
-	include_once "components/head/head.php";
-	include_once "components/header/header.php";
-	include_once "components/roadmap/roadmap.php";
 ?>
 
 
@@ -19,12 +13,16 @@
 
 <html lang="ru">
 
-<?php (new Head())->render(); ?>
+<?php
+$head = new Head();
+$head->title = 'Профиль';
+$head->render();
+?>
 
 <body>
     <?php 
     $header = new Header();
-    $header->isLogin = $_SESSION["user"];
+    $header->User = $_SESSION["user"];
     $header->render();
 	?>
 
@@ -37,6 +35,7 @@
                 $roadmap = new Roadmap();
                 $roadmap->heading = $AllRoadMaps[$i]->Name;
                 $roadmap->text = $AllRoadMaps[$i]->LongDesc;
+                $roadmap->id = $AllRoadMaps[$i]->ID;
                 $roadmap->class = 'main__roadmap';
                 $roadmap->render();
             endif;

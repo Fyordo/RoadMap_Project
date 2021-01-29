@@ -1,6 +1,6 @@
 <?php
-include_once dirname(__FILE__).'/../models/User.php';
-include_once 'config.php';
+include_once dirname(__FILE__)."/../config/services.php";
+include_once dirname(__FILE__) . "/../config/db_connection.php";
 session_start();
 
 class UserDB
@@ -13,7 +13,7 @@ class UserDB
         $result = mysqli_query($link, $sql);
         
         $row = mysqli_fetch_row($result);
-        $User = new User($row[0], $row[1], $row[2], $row[3], explode("/", $row[4]), $row[5]);
+        $User = new User($row[0], $row[1], $row[2], $row[3], explode("/", $row[4]), $row[5], explode("/", $row[6]));
         mysqli_close($link);
 
         return $User;
@@ -57,17 +57,12 @@ class UserDB
 
     // Регистрация нового пользователя
     public static function AddNewUser(string $Nickname, string $Login, string $Password){
-        if (in_array($Login, self::GetAllLogins())){
-            return "Такой пользователь уже есть";
-        }
-
         $NewID = -1;
 
         $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, "roadmapproject", DBConfiguration::$port);
 
         $sql = "SELECT * FROM `users`";
         $result = mysqli_query($link, $sql);
-
         $CountRows = mysqli_num_rows($result);
 
         for ($i = 0; $i < $CountRows; $i++){
@@ -77,9 +72,16 @@ class UserDB
 
         $NewID++;
 
-        $sql = "INSERT INTO `users` (`ID`, `Nickname`, `Login`, `Password`, `FavMapsIDS`, `IsSuperUser`) VALUES ('$NewID',  '$Nickname', '$Login', '$Password', '', '0')";
+        $sql = "INSERT INTO `users` (`ID`, `Nickname`, `Login`, `Password`, `FavMapsIDS`, `IsSuperUser`, `CompletedNodes`) VALUES ('$NewID', '$Nickname', '$Login', '$Password', '', '0', '')";
         $result = mysqli_query($link, $sql);
 
+        mysqli_close($link);
+    }
+
+    public static function ChangeFavMaps($UserID, $new_string){
+        $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, "roadmapproject", DBConfiguration::$port);
+        $sql = "UPDATE `users` SET `FavMapsIDS` = '$new_string' WHERE `users`.`ID` = '$UserID'";
+        $result = mysqli_query($link, $sql);
         mysqli_close($link);
     }
 }

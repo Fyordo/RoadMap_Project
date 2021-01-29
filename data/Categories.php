@@ -1,8 +1,6 @@
 <?php
-include_once 'models/FullRoadMap.php';
-include_once 'models/RoadMapNode.php';
-include_once 'models/Category.php';
-include_once 'config.php';
+include_once dirname(__FILE__)."/../config/services.php";
+include_once dirname(__FILE__) . '/../config/db_connection.php';
 
 class Categories
 {
