@@ -84,4 +84,11 @@ class UserDB
         $result = mysqli_query($link, $sql);
         mysqli_close($link);
     }
+
+    public static function ChangeCompletedNodes($UserID, $new_string){
+        $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, "roadmapproject", DBConfiguration::$port);
+        $sql = "UPDATE `users` SET `CompletedNodes` = '$new_string' WHERE `users`.`ID` = '$UserID'";
+        $result = mysqli_query($link, $sql);
+        mysqli_close($link);
+    }
 }

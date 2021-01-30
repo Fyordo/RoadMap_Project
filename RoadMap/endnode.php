@@ -29,10 +29,12 @@ $head->render();
 
             $parent = $RoadMap->Nodes[$ParentID-1];
             if ($_SESSION["user"] && in_array($parent->ID, $User->CompletedNodes)){
-                echo '<h2 align="center" class="roadmap__heading">Конечный пункт (пройдено):' . $RoadMap->Nodes[$ParentID-1]->Title . '</h2>';
+                echo '<h2 align="center" class="roadmap__heading">Конечный пункт (пройдено): ' . $RoadMap->Nodes[$ParentID-1]->Title . '</h2>';
+                echo '<a class="nav__link nav__link--signup" href="/RoadMap/EndNodeActions.php?id=' . $RoadMap->ID . '&parid=' . $parent->ID . '&act=del">Убрать из пройденных</a>';
             }
             else{
                 echo '<h2 align="center" class="roadmap__heading">Конечный пункт: ' . $RoadMap->Nodes[$ParentID-1]->Title . '</h2>';
+                echo '<a class="nav__link nav__link--signup" href="/RoadMap/EndNodeActions.php?id=' . $RoadMap->ID . '&parid=' . $parent->ID . '&act=add">Добавить в пройденные</a>';
             }
             echo '<p class="roadmap__text">'.$parent->LongDesc.'</p>';
             echo '<a class="nav__link nav__link--signup" href="/RoadMap/showlayer.php?id=' . $RoadMap->ID . '&parid='. $parent->ParentID . '">Вверх</a>';

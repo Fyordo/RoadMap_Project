@@ -33,9 +33,8 @@ $header->render();
         $roadmap->render("show");
 
         if ($_SESSION["user"]) {
-            $count_all = count($RoadMap->Nodes);
             $count_completed = count($User->CompletedNodes);
-            $percent = ($count_completed / $count_all) * 100.0;
+            $percent = ($count_completed / ($RoadMap->CountOfAllChildren()-1)) * 100.0;
             echo '<p class="roadmap__text">Процент прохождения: ' . $percent . '%</p>';
 
             if (in_array($RoadMap->ID, $User->FavMapsIDS)) {

@@ -19,6 +19,8 @@ class User{
         $this->IsSuperUser = $IsSuperUser;
         $this->CompletedNodes = array_slice($CompletedNodes, 0, count($CompletedNodes)-1);
     }
+
+
 }
 
 ?>
