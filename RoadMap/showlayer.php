@@ -30,7 +30,10 @@ $head->render();
             <?
 
             $parent = $RoadMap->GetNodeByID($ParentID);
-            echo '<h2 align="center" class="roadmap__heading">Пункт: ' . $parent->Title . '</h2>';
+            if ($parent->Type != 'b'){
+                echo '<h2 align="center" class="roadmap__heading">Пункт: ' . $parent->Title . '</h2>';
+            }
+
             foreach ($RoadMap->Nodes as $node){
                 if ($node->ParentID == $parent->ID){
                     if ($node->Type != "e"){ // Если это не конечный пункт
@@ -43,18 +46,19 @@ $head->render();
                         <p class="roadmap__text"><a href="/RoadMap/endnode.php?id=' . $RoadMap->ID . '&parid='. $node->ID .'">'. $node->Title . '</a></p>
                         ';
                     }
-                    if (in_array($node->ID, $User->CompletedNodes)){
-                        echo '
+                    if ($_SESSION["user"]) {
+                        if (in_array($node->ID, $User->CompletedNodes)) {
+                            echo '
                         <p class="roadmap__text">Пройдено</p>
                         ';
-                    }
-                    else{
-                        echo '
+                        } else {
+                            echo '
                         <p class="roadmap__text">Не пройдено</p>
                         ';
+                        }
                     }
                     echo '
-                        <p class="roadmap__text">_</p>
+                        <br>
                         ';
                 }
             }

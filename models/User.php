@@ -15,9 +15,19 @@ class User{
         $this->Nickname = $Nickname;
         $this->Login = $Login;
         $this->Password = $Password;
-        $this->FavMapsIDS = array_slice($FavMapsIDS, 0, count($FavMapsIDS)-1);
+        if ($FavMapsIDS != []){
+            $this->FavMapsIDS = array_slice($FavMapsIDS, 0, count($FavMapsIDS)-1);
+        }
+        else{
+            $this->FavMapsIDS = [];
+        }
         $this->IsSuperUser = $IsSuperUser;
-        $this->CompletedNodes = array_slice($CompletedNodes, 0, count($CompletedNodes)-1);
+        if ($CompletedNodes != []){
+            $this->CompletedNodes = array_slice($CompletedNodes, 0, count($CompletedNodes)-1);
+        }
+        else{
+            $this->CompletedNodes = [];
+        }
     }
 
 

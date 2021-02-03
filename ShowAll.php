@@ -25,15 +25,17 @@ $head->render();
 
 
     <main class="main main--catalog">
-        <div class="wrapper main__wrapper">
-            <?php for ($i = 0; $i < count($AllRoadMaps); $i++) :
-                $roadmap = new Roadmap();
-                $roadmap->heading = $AllRoadMaps[$i]->Name;
-                $roadmap->text = $AllRoadMaps[$i]->LongDesc;
-                $roadmap->id = $AllRoadMaps[$i]->ID;
-                $roadmap->class = 'main__roadmap main__roadmap--card';
-                $roadmap->render();
-            endfor; ?>
+        <div class="wrapper main__wrapper main__wrapper--grid">
+        <?php for ($i = 0; $i < count($AllRoadMaps); $i++){
+            $roadmap = new Roadmap();
+            $roadmap->heading = $AllRoadMaps[$i]->Name;
+            $roadmap->text = $AllRoadMaps[$i]->ShortDesc;
+            $roadmap->id = $AllRoadMaps[$i]->ID;
+            $roadmap->class = 'main__roadmap main__roadmap--card';
+            $roadmap->img = 'components/roadmap/images/' . $AllRoadMaps[$i]->ID . '.png';
+            $roadmap->render();
+        }
+        ?>
         </div>
     </main>
 

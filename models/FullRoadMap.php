@@ -48,6 +48,7 @@ class FullRoadMap{
         return $arr;
     }
 
+    // Все ли дети данного пункта выполнены
     public function ChildrenCompleted($ParentID, $completed): bool
     {
         $children = $this->GetNextLayerByNodeID($ParentID);
@@ -59,6 +60,7 @@ class FullRoadMap{
         return true;
     }
 
+    // Получить ID всех предков
     public function GetParentsIDS($nodeID) : array
     {
 

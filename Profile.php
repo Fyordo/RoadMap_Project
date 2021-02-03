@@ -28,7 +28,7 @@ $head->render();
 
     <main class="main">
         <div class="main__wrapper wrapper">
-        <h2 class="main__heading">Здравствуй, <?= $User->Nickname ?></h2>
+        <h2 align="center" class="main__heading">Здравствуй, <?= $User->Nickname ?></h2>
         <h3 class="main__subheading">Ваши любимые карты: </h3>
         <?php for ($i = 0; $i < count($AllRoadMaps); $i++) :
             if (in_array($AllRoadMaps[$i]->ID, $User->FavMapsIDS)) :
@@ -36,8 +36,9 @@ $head->render();
                 $roadmap->heading = $AllRoadMaps[$i]->Name;
                 $roadmap->text = $AllRoadMaps[$i]->LongDesc;
                 $roadmap->id = $AllRoadMaps[$i]->ID;
+                $roadmap->img = 'components/roadmap/images/' . $AllRoadMaps[$i]->ID . '.png';
                 $roadmap->class = 'main__roadmap';
-                $roadmap->render();
+                $roadmap->render("fav");
             endif;
         endfor; ?>
         </div>

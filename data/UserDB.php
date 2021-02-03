@@ -10,10 +10,33 @@ class UserDB
     public static function GetUserDataByLogin(string $Login){
         $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, "roadmapproject", DBConfiguration::$port);
         $sql = "SELECT * FROM `users` WHERE `Login`='$Login'";
-        $result = mysqli_query($link, $sql);
+        $UserInfo = mysqli_query($link, $sql);
         
-        $row = mysqli_fetch_row($result);
-        $User = new User($row[0], $row[1], $row[2], $row[3], explode("/", $row[4]), $row[5], explode("/", $row[6]));
+        $row = mysqli_fetch_row($UserInfo);
+        $User = new User($row[0], $row[1], $row[2], $row[3], [], $row[4], []);
+
+        $sql = "SELECT * FROM `usersfavorites` WHERE `UserID`='$User->ID'";
+        $Favorites = mysqli_query($link, $sql);
+
+        $CountRows = mysqli_num_rows($Favorites);
+        if ($CountRows > 0){
+            for ($i = 0; $i < $CountRows; $i++){
+                $row = mysqli_fetch_row($Favorites);
+                array_push($User->FavMapsIDS, $row[1]);
+            }
+        }
+
+        $sql = "SELECT * FROM `usersnodes` WHERE `UserID`='$User->ID'";
+        $Nodes = mysqli_query($link, $sql);
+
+        $CountRows = mysqli_num_rows($Nodes);
+        if ($CountRows > 0){
+            for ($i = 0; $i < $CountRows; $i++){
+                $row = mysqli_fetch_row($Nodes);
+                array_push($User->CompletedNodes, $row[1]);
+            }
+        }
+
         mysqli_close($link);
 
         return $User;
@@ -72,23 +95,42 @@ class UserDB
 
         $NewID++;
 
-        $sql = "INSERT INTO `users` (`ID`, `Nickname`, `Login`, `Password`, `FavMapsIDS`, `IsSuperUser`, `CompletedNodes`) VALUES ('$NewID', '$Nickname', '$Login', '$Password', '', '0', '')";
+        $sql = "INSERT INTO `users` (`ID`, `Nickname`, `Login`, `Password`, `IsSuperUser`) VALUES ('$NewID', '$Nickname', '$Login', '$Password', '0')";
         $result = mysqli_query($link, $sql);
 
         mysqli_close($link);
     }
 
-    public static function ChangeFavMaps($UserID, $new_string){
+    public static function AddFavMap($UserID, $NewID){
         $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, "roadmapproject", DBConfiguration::$port);
-        $sql = "UPDATE `users` SET `FavMapsIDS` = '$new_string' WHERE `users`.`ID` = '$UserID'";
+        $sql = "INSERT INTO `usersfavorites` (`UserID`, `RoadMapID`) VALUES ('$UserID', '$NewID')";
         $result = mysqli_query($link, $sql);
         mysqli_close($link);
     }
 
-    public static function ChangeCompletedNodes($UserID, $new_string){
+    public static function DeleteFavMap($UserID, $MapID){
         $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, "roadmapproject", DBConfiguration::$port);
-        $sql = "UPDATE `users` SET `CompletedNodes` = '$new_string' WHERE `users`.`ID` = '$UserID'";
+        $sql = "DELETE FROM `usersfavorites` WHERE `UserID`='$UserID' AND `RoadMapID`='$MapID'";
         $result = mysqli_query($link, $sql);
+        mysqli_close($link);
+    }
+
+    public static function AddCompletedNodes($UserID, $IDNodesArray){
+        $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, "roadmapproject", DBConfiguration::$port);
+        foreach ($IDNodesArray as $nodeID){
+            $sql = "INSERT INTO `usersnodes` (`UserID`, `NodeID`) VALUES ('$UserID', '$nodeID')";
+            $result = mysqli_query($link, $sql);
+        }
+
+        mysqli_close($link);
+    }
+
+    public static function DeleteCompletedNodes($UserID, $Erase){
+        $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, "roadmapproject", DBConfiguration::$port);
+        foreach ($Erase as $nodeID){
+            $sql = "DELETE FROM `usersnodes` WHERE `UserID`='$UserID' AND `NodeID`='$nodeID'";
+            $result = mysqli_query($link, $sql);
+        }
         mysqli_close($link);
     }
 }
