@@ -28,6 +28,7 @@ $head->render();
             $form->message = $_SESSION["message"];
             $form->type = 'login';
             $form->render();
+            unset($_SESSION["system_message"]);
             ?>
         </div>
     </main>

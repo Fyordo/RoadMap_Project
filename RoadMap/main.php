@@ -47,7 +47,6 @@ $header->render();
             echo '<br><p class="roadmap__text">Процент прохождения: ' . $percent . '%</p>';
         }
         ?>
-
         <br><a class="nav__link nav__link--signup" href="/RoadMap/showlayer.php?id=<?= $RoadMap->ID ?>&parid=<?= $RoadMap->Nodes[0]->ID ?>">Показать главную ветку</a>
     </div>
 </main>

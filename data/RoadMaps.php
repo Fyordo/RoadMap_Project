@@ -69,29 +69,23 @@ class RoadMaps
     }
 
     // Инициализировать новую дорожную карту (без пунктов)
-    public static function InitNewRoadMap($Name, $CategoryName, $isPopular, $ShortDesc, $LongDesc)
+    public static function InitNewRoadMap($NewID, $Name, $CategoryID, $isPopular, $ShortDesc, $LongDesc)
     {
         $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, "roadmapproject", DBConfiguration::$port);
 
-        $CurrList = self::GetAllRoadMaps();
-        $CID = Categories::FindIDByName($CategoryName);
 
-        $NewID = (int)$CurrList[count($CurrList) - 1]->ID + 1;
-        $sql = "INSERT INTO `roadmapslist` (`ID`, `Name`, `CategoryID`, `IsPopular`, `ShortDesc`, `LongDesc`) VALUES ('$NewID',  '$Name', '$CID', '$isPopular', '$ShortDesc', '$LongDesc')";
+        $sql = "INSERT INTO `roadmapslist` (`ID`, `Name`, `CategoryID`, `IsPopular`, `ShortDesc`, `LongDesc`) VALUES ('$NewID',  '$Name', '$CategoryID', '$isPopular', '$ShortDesc', '$LongDesc')";
         $result = mysqli_query($link, $sql);
 
         mysqli_close($link);
     }
 
     // Добавить новый пункт
-    public static function AddNewNode($ParentID, $RoadMapID, $Type, $Title, $Description)
+    public static function AddNewNode($NodeID, $ParentID, $RoadMapID, $Type, $Title, $Description)
     {
         $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, "roadmapproject", DBConfiguration::$port);
 
-        $Nodes = self::GetAllNodes();
-
-        $NewID = (int)$Nodes[count($Nodes) - 1]->ID + 1;
-        $sql = "INSERT INTO `nodeslist` (`ID`, `ParentID`, `RoadMapID`, `Type`, `Title`, `Description`) VALUES ('$NewID',  '$ParentID', '$RoadMapID', '$Type', '$Title', '$Description')";
+        $sql = "INSERT INTO `nodeslist` (`ID`, `ParentID`, `RoadMapID`, `Type`, `Title`, `Description`) VALUES ('$NodeID',  '$ParentID', '$RoadMapID', '$Type', '$Title', '$Description')";
         $result = mysqli_query($link, $sql);
 
         mysqli_close($link);

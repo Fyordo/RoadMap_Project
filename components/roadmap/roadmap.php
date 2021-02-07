@@ -23,10 +23,9 @@ class Roadmap {
         }
         elseif ($type = "show"){
             echo '
-            
             <article class="roadmap '.$this->class.'">
                 <img float="left" style="width: 250px; height: auto" src="'.$this->img.'">
-                <h2 class="roadmap__heading">'.$this->heading.'</h2>
+                <h2 class="roadmap__heading"><a href="/RoadMap/main.php?id='.$this->id.'">'.$this->heading.'</a></h2>
                 <p class="roadmap__text">'.$this->text.'</p>
             </article>
             <br>
@@ -43,6 +42,18 @@ class Roadmap {
                     <p class="roadmap__text">'.$this->text.'</p>
                 </div>
             </article>
+            <br>
+        ';
+        }
+        elseif ($type == "create"){
+            echo '
+            
+            <article class="roadmap '.$this->class.'">
+                <img float="left" style="width: 250px; height: auto" src="'.$this->img.'">
+                <h2 class="roadmap__heading">'.$this->heading.'</h2>
+                <p class="roadmap__text">'.$this->text.'</p>
+            </article>
+            <a class="nav__link nav__link--signup" href="/Creator/main.php">Открыть карту</a>
             <br>
         ';
         }

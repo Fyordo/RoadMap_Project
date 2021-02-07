@@ -11,11 +11,11 @@ class FullRoadMap{
     public $Nodes; // Все пункты дорожной карты
     public $CategoryName; // Имя категории данной карты
 
-    public function __construct($id = null, $name = null, $categoryId = null, $nodes = null, $isPopular = null, $ShortDesc = null, $LongDesc = null)
+    public function __construct($id, $name, $categoryId, $nodes, $isPopular, $ShortDesc, $LongDesc)
     {
             $this->ID = $id;
             $this->Name = $name;
-            $this->CategoryId = $categoryId;
+            $this->CategoryID = $categoryId;
             $this->Nodes = $nodes;
             $this->IsPopular = $isPopular;
             $this->ShortDesc = $ShortDesc;
@@ -35,6 +35,7 @@ class FullRoadMap{
                 return $node;
             }
         }
+        return null;
     }
 
     public function GetNextLayerByNodeID($nodeID): array
@@ -73,5 +74,16 @@ class FullRoadMap{
         }
 
         return $res;
+    }
+
+    public function GetLastNodeID() : int
+    {
+        $id = -1;
+        foreach ($this->Nodes as $node){
+            if ($node->ID > $id){
+                $id = $node->ID;
+            }
+        }
+        return $id;
     }
 }
