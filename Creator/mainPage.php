@@ -24,13 +24,11 @@ $header->render();
 
 <main class="main">
     <div class="main__wrapper wrapper">
-        <a class="nav__link nav__link--signup" href="/Creator/AddNewMap.php">Добавить в каталог</a>
-        <article class="roadmap '.$this->class.'">
-            <img float="left" style="width: 250px; height: auto" src="../components/roadmap/images/<?=$NewRoadMap->ID?>.png">
-            <h2 class="roadmap__heading"><?=$NewRoadMap->Name?></h2>
-            <p class="roadmap__text"><?=$NewRoadMap->LongDesc?></p>
-        </article>
-        <a class="nav__link nav__link--signup" href="/Creator/layerPage.php?id=<?=$NewRoadMap->ID?>&parid=<?=$NewRoadMap->Nodes[0]->ID?>">Открыть карту</a>
+        <?
+            $form = new CreateForm();
+            $form->NewRoadMap = $NewRoadMap;
+            $form->render("MainMapPage");
+        ?>
         <?unset($_SESSION["system_message"]);?>
         <br>
     </div>

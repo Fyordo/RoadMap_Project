@@ -31,6 +31,7 @@
                     $roadmap->img = 'components/roadmap/images/' . $AllRoadMaps[$i]->ID . '.png';
 					$roadmap->class = 'main__roadmap';
 					$roadmap->render("popular");
+					echo '<br><br><br><br><br>';
 				endif;
 			endfor; ?>
 		</div>
