@@ -27,6 +27,7 @@ $head->render();
             $form->message = $_SESSION["message"];
             $form->type = 'reg';
             $form->render();
+            unset($_SESSION['message']);
             ?>
         </div>
     </main>

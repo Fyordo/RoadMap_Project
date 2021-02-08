@@ -27,17 +27,11 @@ $head->render();
         <div class="main__wrapper wrapper">
             <?
 
-            $parent = $RoadMap->GetNodeByID($ParentID);
-            if ($_SESSION["user"] && in_array($parent->ID, $User->CompletedNodes)){
-                echo '<br><a class="nav__link nav__link--signup" href="/RoadMap/EndNodeActions.php?id=' . $RoadMap->ID . '&parid=' . $parent->ID . '&act=del">Убрать из пройденных</a><br>';
-                echo '<h2 align="center" class="roadmap__heading">Конечный пункт (пройдено): ' . $parent->Title . '</h2>';
-            }
-            else{
-                echo '<br><a class="nav__link nav__link--signup" href="/RoadMap/EndNodeActions.php?id=' . $RoadMap->ID . '&parid=' . $parent->ID . '&act=add">Добавить в пройденные</a><br>';
-                echo '<h2 align="center" class="roadmap__heading">Конечный пункт: ' . $parent->Title . '</h2>';
-            }
-            echo '<br><p class="roadmap__text">'.$parent->LongDesc.'</p>';
-            echo '<br><a class="nav__link nav__link--signup" href="/RoadMap/showlayer.php?id=' . $RoadMap->ID . '&parid='. $parent->ParentID . '">Вверх</a>';
+            $nodes = new Nodes();
+            $nodes->parent = $RoadMap->GetNodeByID($ParentID);
+            $nodes->id = $ParentID;
+            $nodes->RoadMap = $RoadMap;
+            $nodes->render('e');
 
             ?>
 

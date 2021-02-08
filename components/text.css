@@ -1,0 +1,144 @@
+.regular{
+    color: #5587c4;
+    text-decoration: none;
+    font:500 19px arial;
+    display: table;
+    margin-left: 10px;
+}
+
+.regular:after {
+    transition: margin .2s;
+
+    content: '';
+    font-family: 'FontAwesome';
+    display: inline-block;
+}
+
+.regular:hover{color:#f02ba1;}
+.regular:hover:after {
+    margin-left: 0;
+    color:#f02ba1;
+}
+
+
+
+
+
+.right1_1-map{
+    color: #5587c4;
+    text-decoration: none;
+    font:500 19px arial;
+    display: table;
+}
+
+.right1_1-map:after {
+    transition: margin .2s;
+    margin-left: 7px;
+    content: '\f061';
+    font-family: 'FontAwesome';
+    display: inline-block;
+}
+
+.right1_1-map:hover{color:#f02ba1;}
+.right1_1-map:hover:after {
+    margin-left: 12px;
+    color:#f02ba1;
+}
+
+.right1_3{
+    color: #5587c4;
+    text-decoration: none;
+    font:500 19px arial;
+    display: table;
+}
+
+.right1_3:after {
+    transition: margin .25s, opacity .25s, transform .25s;
+    transform: rotate(-180deg);
+    opacity: 0;
+    margin-left: -10px;
+    content: '\f0a9';
+    font-family: 'FontAwesome';
+    display: inline-block;
+}
+
+.right1_3:hover{
+    color:#f02ba1;
+}
+
+.right1_3:hover:after {
+    transition: margin .5s, opacity .25s, transform .5s;
+    transform: rotate(0);
+    opacity: 1;
+    margin-left: .7em;
+}
+
+.right1_1{
+    color: #5587c4;
+    text-decoration: none;
+    font:500 19px arial;
+    display: table;
+}
+
+.right1_1:before {
+    transition: margin .2s;
+    margin-left: 7px;
+    transform: rotate(-180deg);
+    content: '\f061';
+    font-family: 'FontAwesome';
+    display: inline-block;
+}
+
+.right1_1:hover{
+    color:#f02ba1;
+}
+.right1_1:hover:before {
+    margin-left: -7px;
+    color:#f02ba1;
+}
+
+
+.right1_5{
+    color: #5587c4;
+    text-decoration: none;
+    font:500 19px arial;
+}
+
+.right1_5:after {
+    transition: margin 0s;
+    margin-left: -10em;
+    opacity: 0;
+    content: '\f00c';
+    font-family: 'FontAwesome';
+    display: inline-block;
+}
+
+.right1_5:hover{color:#f02ba1;}
+.right1_5:hover:after {
+    transition: margin .35s, opacity .1s;
+    margin-left: .5em;
+    opacity: 1;
+}
+
+
+.right1_6{
+    color: #5587c4;
+    text-decoration: none;
+    font:500 19px arial;
+}
+
+.right1_6:after {
+    transition: margin 0s;
+    margin-left: -10em;
+    opacity: 0;
+    content: '\f00d';
+    font-family: 'FontAwesome';
+    display: inline-block;
+}
+
+.right1_6:hover{color:#f02ba1;}
+.right1_6:hover:after {
+    transition: margin .35s, opacity .1s;
+    margin-left: .5em;
+    opacity: 1;
+}

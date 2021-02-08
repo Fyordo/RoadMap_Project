@@ -8,6 +8,9 @@ class Footer {
                 <p class="footer__text">©Fyor Lando, nerealy professi_analny backend-developer😎</p>
                 <p class="footer__text">©Learde, nerealy professi_analny frontend-developer😎</p>
             </div>
+            <br>
+            <br>
+            <br>
         </footer>
         ';
     }

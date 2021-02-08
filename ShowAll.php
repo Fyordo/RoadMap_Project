@@ -33,7 +33,7 @@ $head->render();
             $roadmap->id = $AllRoadMaps[$i]->ID;
             $roadmap->class = 'main__roadmap main__roadmap--card';
             $roadmap->img = 'components/roadmap/images/' . $AllRoadMaps[$i]->ID . '.png';
-            $roadmap->render();
+            $roadmap->render("list");
         }
         ?>
         </div>

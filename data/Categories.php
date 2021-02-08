@@ -8,7 +8,7 @@ class Categories
     public static function GetAllCategories()
     {
         $res = [];
-        $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, "roadmapproject", DBConfiguration::$port);
+        $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, DBConfiguration::$db_name);
 
         $sql = 'SELECT * FROM `categories`';
         $result = mysqli_query($link, $sql);
@@ -30,7 +30,7 @@ class Categories
 
     // Добавить новую категорию в БД
     public static function AddNewCategory($CategoryName, $Description){
-        $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, "roadmapproject", DBConfiguration::$port);
+        $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, DBConfiguration::$db_name);
 
         $CurrList = self::GetAllCategories();
         $NewID = (int)$CurrList[count($CurrList) - 1]->ID + 1;

@@ -8,7 +8,7 @@ class RoadMaps
     public static function GetAllRoadMaps()
     {
         $AllRoadMaps = [];
-        $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, "roadmapproject", DBConfiguration::$port);
+        $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, DBConfiguration::$db_name);
 
         $sql = 'SELECT * FROM `roadmapslist`';
         $roadmaps = mysqli_query($link, $sql);
@@ -50,7 +50,7 @@ class RoadMaps
     public static function GetAllNodes()
     {
         $AllNodes = [];
-        $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, "roadmapproject", DBConfiguration::$port);
+        $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, DBConfiguration::$db_name);
 
         $sql = 'SELECT * FROM `nodeslist`';
         $nodes = mysqli_query($link, $sql);
@@ -71,7 +71,7 @@ class RoadMaps
     // Инициализировать новую дорожную карту (без пунктов)
     public static function InitNewRoadMap($NewID, $Name, $CategoryID, $isPopular, $ShortDesc, $LongDesc)
     {
-        $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, "roadmapproject", DBConfiguration::$port);
+        $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, DBConfiguration::$db_name);
 
 
         $sql = "INSERT INTO `roadmapslist` (`ID`, `Name`, `CategoryID`, `IsPopular`, `ShortDesc`, `LongDesc`) VALUES ('$NewID',  '$Name', '$CategoryID', '$isPopular', '$ShortDesc', '$LongDesc')";
@@ -83,7 +83,7 @@ class RoadMaps
     // Добавить новый пункт
     public static function AddNewNode($NodeID, $ParentID, $RoadMapID, $Type, $Title, $Description)
     {
-        $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, "roadmapproject", DBConfiguration::$port);
+        $link = mysqli_connect(DBConfiguration::$host, DBConfiguration::$user, DBConfiguration::$password, DBConfiguration::$db_name);
 
         $sql = "INSERT INTO `nodeslist` (`ID`, `ParentID`, `RoadMapID`, `Type`, `Title`, `Description`) VALUES ('$NodeID',  '$ParentID', '$RoadMapID', '$Type', '$Title', '$Description')";
         $result = mysqli_query($link, $sql);

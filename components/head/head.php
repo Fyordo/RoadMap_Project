@@ -10,7 +10,8 @@ class Head {
                 <link href="/styles/vendor/reset.css" rel="stylesheet" type="text/css" />
                 <link rel="preconnect" href="https://fonts.gstatic.com">
                 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-                <link href="/styles/main.css" rel="stylesheet" type="text/css" />
+                <link href="/styles/main.css" rel="stylesheet" type="text/css" />           
+                <script src="https://use.fontawesome.com/a4906569c9.js"></script>
                 <title>'.$this->title.'</title>
                 <link rel="shortcut icon" href="/img/Icon.png" type="image/x-icon">
             </head>

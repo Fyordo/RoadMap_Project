@@ -25,52 +25,14 @@ $head->render();
 
     <main class="main">
         <div class="main__wrapper wrapper">
-            <h2 align="center" class="roadmap__heading">Дорожная карта: <?= $RoadMap->Name?></h2>
 
-            <?
-
-            $parent = $RoadMap->GetNodeByID($ParentID);
-            if ($parent->Type != 'b'){
-                echo '<h2 align="center" class="roadmap__heading">Пункт: ' . $parent->Title . '</h2>';
-            }
-
-            foreach ($RoadMap->Nodes as $node){
-                if ($node->ParentID == $parent->ID){
-                    if ($node->Type != "e"){ // Если это не конечный пункт
-                        echo '
-                        <p class="roadmap__text"><a href="/RoadMap/showlayer.php?id=' . $RoadMap->ID . '&parid='. $node->ID .'">'. $node->Title . '</a></p>
-                        ';
-                    }
-                    else{ // Если это конечный пункт
-                        echo '
-                        <p class="roadmap__text"><a href="/RoadMap/endnode.php?id=' . $RoadMap->ID . '&parid='. $node->ID .'">'. $node->Title . '</a></p>
-                        ';
-                    }
-                    if ($_SESSION["user"]) {
-                        if (in_array($node->ID, $User->CompletedNodes)) {
-                            echo '
-                        <p class="roadmap__text">Пройдено</p>
-                        ';
-                        } else {
-                            echo '
-                        <p class="roadmap__text">Не пройдено</p>
-                        ';
-                        }
-                    }
-                    echo '
-                        <br>
-                        ';
-                }
-            }
-
-            if ($parent->Type != "b"){ // Если это не начальный пункт
-                echo '<a class="nav__link nav__link--signup" href="/RoadMap/showlayer.php?id=' . $RoadMap->ID . '&parid='. $parent->ParentID . '">Вверх</a>';
-            }
-            else{ // Если это не начальный пункт
-                echo '<a class="nav__link nav__link--signup" href="/RoadMap/main.php?id=' . $RoadMap->ID .'">Вернуться в меню карты</a>';
-            }
-
-            ?>
+        <?
+            $nodes = new Nodes();
+            $nodes->parent = $RoadMap->GetNodeByID($ParentID);
+            $nodes->id = $ParentID;
+            $nodes->RoadMap = $RoadMap;
+            $nodes->render();
+        ?>
 
         </div>
     </main>

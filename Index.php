@@ -20,6 +20,7 @@
 	<main class="main">
 
 		<div class="main__wrapper wrapper">
+
             <h1 align="center" class="main__heading">Самые популярные дорожные карты</h1>
 			<?php for ($i = 0; $i < count($AllRoadMaps); $i++) :
 				if ($AllRoadMaps[$i]->IsPopular) :
@@ -29,7 +30,7 @@
                     $roadmap->id = $AllRoadMaps[$i]->ID;
                     $roadmap->img = 'components/roadmap/images/' . $AllRoadMaps[$i]->ID . '.png';
 					$roadmap->class = 'main__roadmap';
-					$roadmap->render("fav");
+					$roadmap->render("popular");
 				endif;
 			endfor; ?>
 		</div>

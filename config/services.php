@@ -12,4 +12,5 @@ include_once dirname(__FILE__)."/../components/footer/footer.php";
 include_once dirname(__FILE__)."/../components/head/head.php";
 include_once dirname(__FILE__)."/../components/header/header.php";
 include_once dirname(__FILE__)."/../components/roadmap/roadmap.php";
+include_once dirname(__FILE__)."/../components/nodes/nodes.php";
 ?>
